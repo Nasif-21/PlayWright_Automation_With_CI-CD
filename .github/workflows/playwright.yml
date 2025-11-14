@@ -35,9 +35,6 @@ jobs:
       - name: Ensure resources folder exists
         run: mkdir -p resources
 
-      # Optional: check if the site is reachable
-      - name: Check site connectivity
-        run: curl -I https://dailyfinance.roadtocareer.net/
 
       - name: Run Playwright tests sequentially
         run: npx playwright test --workers=1 --timeout=60000
