@@ -1,0 +1,21 @@
+{
+  "name": "playwright_assignment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:sequential": "npx playwright test tests/1register.spec.ts tests/2login.spec.ts tests/3user.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
