@@ -1,7 +1,11 @@
 import { Page } from "@playwright/test";
 import  fs from "fs";
+import path from "path";
 
-const localStoragePath = 'resources/localstorage.json';
+//const localStoragePath = 'resources/localstorage.json';
+const localStoragePath = path.join(__dirname, "..", "resources", "localstorage.json");
+
+//const localStoragePath = 'resources/localstorage.json';
 
 export async function setAuth(page: Page) {
     const jsonString=fs.readFileSync(localStoragePath,'utf-8');
