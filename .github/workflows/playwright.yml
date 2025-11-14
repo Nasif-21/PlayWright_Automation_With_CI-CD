@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      GMAIL_ACCESS_TOKEN: ${{ secrets.GMAIL_ACCESS_TOKEN }}
+      gmail_access_token: ${{ secrets.GMAIL_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout code
