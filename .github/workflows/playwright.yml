@@ -26,9 +26,7 @@ jobs:
           node-version: lts/*
 
       - name: Install dependencies
-        run: npm install
-        working-directory: PlayWright_Automation_With_CI-CD
-
+        run: npm ci
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
