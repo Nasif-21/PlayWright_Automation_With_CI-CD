@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      # Gmail secret for tests
       gmail_access_token: ${{ secrets.GMAIL_ACCESS_TOKEN }}
 
     steps:
@@ -31,8 +32,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      - name: Ensure resources folder exists
+        run: mkdir -p resources
+
+      # Optional: check if the site is reachable
+      - name: Check site connectivity
+        run: curl -I https://dailyfinance.roadtocareer.net/
+
       - name: Run Playwright tests sequentially
-        run: npm run test:sequential
+        run: npx playwright test --workers=1 --timeout=60000
+        env:
+          # Pass Gmail secret to tests
+          gmail_access_token: ${{ secrets.GMAIL_ACCESS_TOKEN }}
 
       - name: Upload Playwright report
         if: ${{ !cancelled() }}
